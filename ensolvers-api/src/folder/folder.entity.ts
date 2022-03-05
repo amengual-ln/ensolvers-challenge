@@ -7,7 +7,7 @@ export class Folder {
     id: number;
 
     @Column()
-    description: string;
+    name: string;
 
     @Column({ default: false })
     done: boolean;

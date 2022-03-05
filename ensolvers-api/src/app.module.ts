@@ -15,7 +15,7 @@ import { FolderModule } from './folder/folder.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: '4242',
+      password: 'password',
       database: 'ensolvers_db',
       entities: [Todo, Folder],
       synchronize: true,

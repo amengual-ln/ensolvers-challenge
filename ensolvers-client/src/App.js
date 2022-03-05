@@ -1,9 +1,24 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Container } from './components/Container'
+import { Folders } from './pages/Folders'
+import { Folder } from './pages/Folder'
+import { Todo } from './pages/Todo'
+
 function App() {
   return (
     <div className="App">
-      <h1>Hola</h1>
+      <BrowserRouter>
+        <Container>
+          <h1>To-do App</h1>
+          <Routes>
+            <Route path="/" element={<Folders />} />
+            <Route path="/folder/:id" element={<Folder />}></Route>
+            <Route path="/todo/:id" element={<Todo />} />
+          </Routes>
+        </Container>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
 export default App;
