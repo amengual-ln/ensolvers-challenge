@@ -9,13 +9,13 @@ export default function state(state = [], action) {
   if (action.type === '@todos/CREATE_TODO') {
     state = state.concat(action.payload)
   }
-  if (action.type === '@todos/MARK_COMPLETED') {
+  if (action.type === '@todos/MARK_DONE') {
     state = state.map((todo) => {
       if (todo.id === action.payload) {
         return {
           id: todo.id,
-          title: todo.title,
-          isCompleted: !todo.isCompleted,
+          description: todo.description,
+          done: !todo.done,
         }
       }
       return todo
@@ -26,8 +26,8 @@ export default function state(state = [], action) {
       if (todo.id === action.payload.id) {
         return {
           id: todo.id,
-          title: action.payload.title,
-          isCompleted: todo.isCompleted
+          description: action.payload.description,
+          done: todo.done
         }
       }
       return todo

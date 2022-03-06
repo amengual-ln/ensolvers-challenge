@@ -14,8 +14,7 @@ export default function state(state = [], action) {
       if (folder.id === action.payload.id) {
         return {
           id: folder.id,
-          title: action.payload.title,
-          isCompleted: folder.isCompleted
+          name: action.payload.name,
         }
       }
       return folder

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { getTodosByFolder } from '../store/selectors/todos'
 import { CreateTodo } from '../components/CreateTodo'
 import { Todo } from '../components/Todo'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 export const Folder = () => {
   const { id } = useParams()
@@ -19,8 +19,8 @@ export const Folder = () => {
         {todos.map((todo) => (
           <Todo
             id={todo.id}
-            title={todo.title}
-            isCompleted={todo.isCompleted}
+            description={todo.description}
+            done={todo.done}
             key={todo.id}
           />
         ))}

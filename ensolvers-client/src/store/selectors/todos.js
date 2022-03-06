@@ -1,5 +1,3 @@
-import { getFolders } from './folders'
-
 export const getTodosState = (store) => store.todos
 
 export const getTodos = (store) =>

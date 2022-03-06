@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { deleteFolder, toggleDone } from '../store/actions/folders'
+import { deleteFolder } from '../store/actions/folders'
 
 export const Folder = ({ id, name }) => {
   const dispatch = useDispatch()

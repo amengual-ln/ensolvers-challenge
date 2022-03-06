@@ -22,23 +22,23 @@ export const createTodo = (todo, folder) => async (dispatch) => {
   })
 }
 
-export const toggleDone = (id, isCompleted) => async (dispatch) => {
+export const toggleDone = (id, done) => async (dispatch) => {
   await axios.put(`${API_URL}/todo/${id}`, {
-    isCompleted: !isCompleted,
+    done: !done,
   })
   dispatch({
-    type: '@todos/MARK_TODO',
+    type: '@todos/MARK_DONE',
     payload: id,
   })
 }
 
-export const updateTodo = (id, title) => async (dispatch) => {
+export const updateTodo = (id, description) => async (dispatch) => {
   await axios.put(`${API_URL}/todo/${id}`, {
-    title: title,
+    description: description,
   })
   dispatch({
     type: '@todos/UPDATE_TODO',
-    payload: { id, title },
+    payload: { id, description },
   })
 }
 

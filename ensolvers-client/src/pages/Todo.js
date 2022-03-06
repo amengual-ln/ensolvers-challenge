@@ -12,7 +12,7 @@ export const Todo = () => {
   const navigate = useNavigate()
 
   const fetchTodo = async () => {
-    const response = await axios.get(`http://localhost:3001/todos/${id}`)
+    const response = await axios.get(`http://localhost:3001/todo/${id}`)
     const item = response.data.todo
     setTodo(item)
   }
