@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Container>
-          <h1>To-do App</h1>
+          <h1 className='text-lg font-medium'>To-do App</h1>
           <Routes>
             <Route path="/" element={<Folders />} />
             <Route path="/folder/:id" element={<Folder />}></Route>

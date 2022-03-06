@@ -13,7 +13,7 @@ export const CreateFolder = () => {
   }
 
   return (
-    <form className="grid grid-cols-8 gap-2 my-3">
+    <form className="grid grid-cols-10 my-3">
       <input
         type="text"
         onChange={(event) => {
@@ -21,11 +21,11 @@ export const CreateFolder = () => {
         }}
         value={folder}
         placeholder="Nueva carpeta"
-        className="col-span-6"
+        className="col-span-8 p-2 border border-solid border-slate-300 outline-none"
       />
       <input
         type="submit"
-        value="+"
+        value="Crear"
         onClick={(event) => {
           event.preventDefault()
           CreateNewFolder()

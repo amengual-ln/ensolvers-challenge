@@ -1,19 +1,21 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createTodo } from '../store/actions/todos'
+import { useParams } from 'react-router-dom'
 
 export const CreateTodo = () => {
+  const { id } = useParams()
   const [todo, setTodo] = useState('')
   const dispatch = useDispatch()
 
   const CreateNewTodo = async () => {
     if (todo === '') return
-    dispatch(createTodo(todo))
+    dispatch(createTodo(todo, id))
     setTodo('')
   }
 
   return (
-    <form className="grid grid-cols-8 gap-2 my-3">
+    <form className="grid grid-cols-10 my-3">
       <input
         type="text"
         onChange={(event) => {
@@ -21,11 +23,11 @@ export const CreateTodo = () => {
         }}
         value={todo}
         placeholder="Nuevo to do..."
-        className="col-span-6"
+        className="col-span-8 p-2 border border-solid border-slate-300 outline-none"
       />
       <input
         type="submit"
-        value="+"
+        value="Crear"
         onClick={(event) => {
           event.preventDefault()
           CreateNewTodo()

@@ -3,7 +3,7 @@ import axios from 'axios'
 const API_URL = 'http://localhost:3001'
 
 export const fetchTodos = () => async (dispatch) => {
-  const response = await axios.get(API_URL + '/todos')
+  const response = await axios.get(API_URL + '/todo')
   const todos = response.data.todos
   dispatch({
     type: '@todos/SET_TODOS',
@@ -11,9 +11,10 @@ export const fetchTodos = () => async (dispatch) => {
   })
 }
 
-export const createTodo = (todoTitle) => async (dispatch) => {
-  const response = await axios.post(API_URL + '/todos', {
-    title: todoTitle,
+export const createTodo = (todo, folder) => async (dispatch) => {
+  console.log()
+  const response = await axios.post(API_URL + '/todo', {
+    description: todo
   })
   dispatch({
     type: '@todos/CREATE_TODO',
@@ -22,7 +23,7 @@ export const createTodo = (todoTitle) => async (dispatch) => {
 }
 
 export const toggleDone = (id, isCompleted) => async (dispatch) => {
-  await axios.put(`${API_URL}/todos/${id}`, {
+  await axios.put(`${API_URL}/todo/${id}`, {
     isCompleted: !isCompleted,
   })
   dispatch({
@@ -32,7 +33,7 @@ export const toggleDone = (id, isCompleted) => async (dispatch) => {
 }
 
 export const updateTodo = (id, title) => async (dispatch) => {
-  await axios.put(`${API_URL}/todos/${id}`, {
+  await axios.put(`${API_URL}/todo/${id}`, {
     title: title,
   })
   dispatch({
@@ -42,7 +43,7 @@ export const updateTodo = (id, title) => async (dispatch) => {
 }
 
 export const deleteTodo = (id) => async (dispatch) => {
-  await axios.delete(`${API_URL}/todos/${id}`)
+  await axios.delete(`${API_URL}/todo/${id}`)
   dispatch({
     type: '@todos/DELETE_TODO',
     payload: id,

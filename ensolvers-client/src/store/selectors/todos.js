@@ -7,4 +7,5 @@ export const getTodos = (store) =>
 
 export const getTodosByFolder = (store, folderId) => {
   const todos = getTodos(store)
+  return todos
 }
